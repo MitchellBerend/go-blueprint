@@ -32,6 +32,19 @@ func InitGoMod(projectName string, appDir string) error {
 }
 
 
+// TidyGoMod runs "go mod tidy" for a given package in the
+// selected directory
+func TidyGoMod(projectName string, appDir string) error {
+	if err := ExecuteCmd(
+		"go",
+		[]string{"mod", "tidy"},
+		appDir); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // GoGetPackage runs "go get" for a given package in the
 // selected directory
 func GoGetPackage(appDir string, packages []string) error {
