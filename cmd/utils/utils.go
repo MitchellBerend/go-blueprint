@@ -7,7 +7,7 @@ import (
 	"os/exec"
 )
 
-// ExecuteCmd provides a shorthand way to run a shell command 
+// ExecuteCmd provides a shorthand way to run a shell command
 func ExecuteCmd(name string, args []string, dir string) error {
 	command := exec.Command(name, args...)
 	command.Dir = dir
@@ -30,7 +30,6 @@ func InitGoMod(projectName string, appDir string) error {
 
 	return nil
 }
-
 
 // TidyGoMod runs "go mod tidy" for a given package in the
 // selected directory
