@@ -63,7 +63,7 @@ func websocketTemplate() []byte {
 			return
 		}
 	}
-`
+`)
 }
 
 // MakeHTTPRoutes returns a byte slice that represents 
