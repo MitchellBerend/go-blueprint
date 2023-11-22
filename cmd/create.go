@@ -44,6 +44,14 @@ func init() {
 	createCmd.Flags().StringP("name", "n", "", "Name of project to create")
 	createCmd.Flags().VarP(&flagFramework, "framework", "f", fmt.Sprintf("Framework to use. Allowed values: %s", strings.Join(flags.AllowedProjectTypes, ", ")))
 	createCmd.Flags().VarP(&flagDBDriver, "driver", "d", fmt.Sprintf("database drivers to use. Allowed values: %s", strings.Join(flags.AllowedDBDrivers, ", ")))
+
+	if err := rootCmd.RegisterFlagCompletionFunc("framework", flags.FrameworkCompletion); err != nil {
+		log.Fatal(err)
+	}
+
+	if err := rootCmd.RegisterFlagCompletionFunc("driver", flags.DBDriverCompletion); err != nil {
+		log.Fatal(err)
+	}
 }
 
 type Options struct {

@@ -3,6 +3,8 @@ package flags
 import (
 	"fmt"
 	"strings"
+
+	"github.com/spf13/cobra"
 )
 
 type Framework string
@@ -41,4 +43,8 @@ func (f *Framework) Set(value string) error {
 	}
 
 	return fmt.Errorf("Framework to use. Allowed values: %s", strings.Join(AllowedProjectTypes, ", "))
+}
+
+func FrameworkCompletion(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+	return AllowedProjectTypes, cobra.ShellCompDirectiveDefault
 }

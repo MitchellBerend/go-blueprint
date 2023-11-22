@@ -3,6 +3,8 @@ package flags
 import (
 	"fmt"
 	"strings"
+
+	"github.com/spf13/cobra"
 )
 
 type Database string
@@ -39,4 +41,8 @@ func (f *Database) Set(value string) error {
 	}
 
 	return fmt.Errorf("Database to use. Allowed values: %s", strings.Join(AllowedDBDrivers, ", "))
+}
+
+func DBDriverCompletion(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {
+	return AllowedDBDrivers, cobra.ShellCompDirectiveDefault
 }
