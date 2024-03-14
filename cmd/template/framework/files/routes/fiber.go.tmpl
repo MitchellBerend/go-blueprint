@@ -19,7 +19,7 @@ func (s *FiberServer) HelloWorldHandler(c *fiber.Ctx) error {
 		"message": "Hello World",
 	}
 
-	return c.JSON(res)
+	return c.JSON(resp)
 }
 
 {{if ne .DBDriver "none"}}
