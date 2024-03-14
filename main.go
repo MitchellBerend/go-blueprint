@@ -1,7 +1,12 @@
 package main
 
-import "github.com/melkeydev/go-blueprint/cmd"
+import (
+	"fmt"
+
+	"github.com/melkeydev/go-blueprint/cmd"
+)
 
 func main() {
 	cmd.Execute()
+	fmt.Println("hello CI")
 }
